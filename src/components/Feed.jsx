@@ -6,19 +6,17 @@ import { value_converter } from '../data'
 import moment from 'moment'
 import '../App.css'
 
-const Feed = ({ sidebar, category, setCategory }) => {
+const Feed = ({ sidebar, category, setCategory}) => {
 
     const [videoList, setVideoList] = useState([]);
-    // const {categoryId,videoId} = useParams();
-
     const fetchVideos = async () => {
         const response = await fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&videoCategoryId=${category}&key=${API_KEY}`)
         const data = await response.json()
-        console.log(data)
+        // console.log(data)
         setVideoList(data.items)
     }
 
-    console.log(videoList);
+    // console.log(videoList);
 
     useEffect(() => {
         fetchVideos();

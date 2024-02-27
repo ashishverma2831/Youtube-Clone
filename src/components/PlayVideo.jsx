@@ -13,7 +13,7 @@ import moment from 'moment'
 const PlayVideo = ({category}) => {
 
     const { categoryId, videoId } = useParams();
-    console.log(categoryId, videoId);
+    // console.log(categoryId, videoId);
     const [videoData, setVideoData] = useState(null);
     const [channelData, setChannelData] = useState(null);
     const [commentData, setCommentData] = useState([]);
@@ -29,7 +29,7 @@ const PlayVideo = ({category}) => {
         const data = await response.json();
         setChannelData(data.items[0])
     }
-    console.log(channelData);
+    // console.log(channelData);
     useEffect(() => {
         fetchChannelData()
     }, [videoData])
@@ -37,14 +37,14 @@ const PlayVideo = ({category}) => {
     useEffect(() => {
         fetchVideo()
     }, [videoId])
-    console.log(videoData);
+    // console.log(videoData);
 
     const fetchComments = async () => {
         const response = await fetch(`https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&videoId=${videoId}&key=${API_KEY}`)
         const data = await response.json()
         setCommentData(data.items)
     }
-    console.log(commentData);
+    // console.log(commentData);
     useEffect(() => {
         fetchComments()
     }, [])
