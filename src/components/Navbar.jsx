@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import menu from '../assets/menu.png'
 import logo from '../assets/logo.png'
 import search from '../assets/search.png'
@@ -8,8 +8,20 @@ import notification from '../assets/notification.png'
 import profile from '../assets/tom.png'             
 import { Link } from 'react-router-dom'
 import images from '../assets/images.jpg'
+import { API_KEY } from '../data'
 
 const Navbar = ({sidebar,setSidebar}) => {
+    const searchRef = useRef(null);
+    const [searchList, setSearchList] = useState([]);
+
+    const fetchSearch = async () => {
+        const res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${searchRef.current.value}&key=${API_KEY}`);
+        const data = await res.json();
+        console.log(data);
+        setSearchList(data.items);
+    }
+    console.log(searchList);
+
     return (
         <>
             <nav className='flex items-center px-[10px] py-4 justify-between shadow-md bg-white sticky top-0 z-10'>
@@ -19,8 +31,8 @@ const Navbar = ({sidebar,setSidebar}) => {
                 </div>
                 <div className='hidden md:flex'>
                     <div className='border mr-4 px-2 py-2 rounded-3xl flex items-center'>
-                      <input className='ml-2 bg-transparent w-[400px] border-none outline-none' type="text" placeholder="Search" />
-                      <button><img className='w-4 h-4 mr-2' src={search} alt="Menu" /></button>
+                      <input className='ml-2 bg-transparent w-[400px] border-none outline-none' type="text" placeholder="Search" ref={searchRef}/>
+                      <button><img className='w-4 h-4 mr-2' src={search} alt="search_icon" onClick={fetchSearch} /></button>
                     </div>
                 </div>
                 <div className='hidden md:flex md:gap-6 md:mr-4'>

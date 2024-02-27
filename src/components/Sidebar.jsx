@@ -47,8 +47,8 @@ const Sidebar = ({sidebar,category,setCategory}) => {
                 <div className='flex gap-4 px-2 py-2 cursor-pointer hover:bg-gray-100 rounded-lg' onClick={()=>{setCategory(25)}}>
                     <img className='w-6' src={news} /><p>News</p>
                 </div>
-                {/* <hr className='my-2' /> */}
-                {/* <p className='font-semibold uppercase my-2'>subscribed</p>
+                <hr className='my-2' />
+                <p className='font-semibold uppercase my-2'>subscribed</p>
                 <div className='flex flex-col'> 
                     <div className='flex gap-4 px-2 py-2 cursor-pointer hover:bg-gray-100 rounded-lg'>
                         <img className='w-6 h-6 rounded-full' src={jack} /><p>PewDiePie</p>
@@ -65,7 +65,7 @@ const Sidebar = ({sidebar,category,setCategory}) => {
                     <div className='flex gap-4 px-2 py-2 cursor-pointer hover:bg-gray-100 rounded-lg'>
                         <img className='w-6 h-6 rounded-full' src={cameron} /><p>Nas Daily</p>
                     </div>
-                </div> */}
+                </div>
             </div>
         </div>
     </section>
