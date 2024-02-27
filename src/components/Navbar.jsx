@@ -22,12 +22,16 @@ const Navbar = ({sidebar,setSidebar}) => {
     }
     console.log(searchList);
 
+    //how to use searchList to display the search results
+    
+    
+
     return (
         <>
             <nav className='flex items-center px-[10px] py-4 justify-between shadow-md bg-white sticky top-0 z-10'>
                 <div className='px-4 w-full flex md:w-auto justify-between md:flex md:px-4 md:items-center'>
                     <button type='button' onClick={()=>{setSidebar(!sidebar)}}><img className='w-[28px] mx-2' src={menu} alt="Menu" /></button>
-                    <Link to={'/'}><img className='w-[130px] mx-4' src={logo} alt='Logo' /></Link>
+                    <Link to={'/'} ><img className='w-[130px] mx-4' src={logo} alt='Logo' /></Link>
                 </div>
                 <div className='hidden md:flex'>
                     <div className='border mr-4 px-2 py-2 rounded-3xl flex items-center'>
