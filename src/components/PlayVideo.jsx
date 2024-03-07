@@ -12,8 +12,8 @@ import moment from 'moment'
 
 const PlayVideo = ({category}) => {
 
-    const { categoryId, videoId } = useParams();
-    // console.log(categoryId, videoId);
+    const { categoryId, videoId} = useParams();
+    console.log(categoryId, videoId);
     const [videoData, setVideoData] = useState(null);
     const [channelData, setChannelData] = useState(null);
     const [commentData, setCommentData] = useState([]);
