@@ -16,10 +16,10 @@ const Video = ({sidebar,category,setCategory,setSidebar}) => {
       
       <section className={sidebar?' w-full px-8 py-4 bg-gray-100 flex gap-4':'bg-gray-100 gap-4 flex max-w-screen-2xl ml-56 px-4 py-4'}>
         <div className='w-2/3'>
-          <PlayVideo category={category} setCategory={setCategory} />
+          <PlayVideo category={category} setCategory={setCategory} videoId={videoId}/>
         </div>
         <div className='w-1/3'>
-          <Recommendation category={category}  categoryId={categoryId}/>
+          <Recommendation category={category}  categoryId={categoryId} videoId={videoId}/>
         </div>
       </section>
     </>
