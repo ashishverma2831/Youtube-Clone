@@ -47,7 +47,7 @@ const PlayVideo = ({category}) => {
     // console.log(commentData);
     useEffect(() => {
         fetchComments()
-    }, [])
+    }, [videoId])
 
     return (
         <>
